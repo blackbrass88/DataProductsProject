@@ -68,7 +68,8 @@ shinyUI(pageWithSidebar(
       p("This predictive model was built using data from fueleconomy.gov for 
         model years 1987 to 2016. Infromation on how the model was built is 
         available at the following github repository"),
-      a(href="","Github Repo:"),
+      a(href="https://github.com/blackbrass88/DataProductsProject",
+        "github.com/blackbrass88/DataProductsProject"),
       h3('Estimated MPG:'),
       verbatimTextOutput("mpg"),
       h3('Matching Vehicles'),
