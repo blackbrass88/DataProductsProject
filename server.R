@@ -7,6 +7,7 @@
 
 library(shiny)
 library(caret)
+library(dplyr)
 model <- readRDS("modelGLM.rds")
 fuelData <- readRDS("fuelData.rds")
 
@@ -21,6 +22,17 @@ shinyServer(function(input, output) {
                            sCharger=input$sCharger,
                            tCharger=input$tCharger)
       predict(model,userInputs)
+  })
+  
+  output$cars <- renderTable({
+      carModels <- filter(fuelData,cylinders==input$cylinders,
+                          displ==input$displ,
+                          drive==input$drive,
+                          trany==input$trany,
+                          year==as.numeric(input$year),
+                          sCharger==input$sCharger,
+                          tCharger==input$tCharger)
+      select(carModels,Make=make,Model=model)
   })
   
 

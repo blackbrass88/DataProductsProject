@@ -59,6 +59,7 @@ shinyUI(pageWithSidebar(
   # Show a plot of the generated distribution
   mainPanel(
    h3('Estimated MPG:'),
-   verbatimTextOutput("mpg")
+   verbatimTextOutput("mpg"),
+   tableOutput("cars")
   )
 ))
