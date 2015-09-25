@@ -11,8 +11,8 @@ fuelData <- readRDS("fuelData.rds")
 shinyUI(pageWithSidebar(
   
   # Application title
-  headerPanel("Estimating Fuel Economy"),
-  
+  headerPanel("Estimating Vehicle Fuel Economy"),
+   
   # Sidebar with a slider input for number of bins
   sidebarPanel(
     
@@ -58,8 +58,20 @@ shinyUI(pageWithSidebar(
   
   # Show a plot of the generated distribution
   mainPanel(
-   h3('Estimated MPG:'),
-   verbatimTextOutput("mpg"),
-   tableOutput("cars")
+      p("This web application allows you to estimate a vehicle's fuel economy 
+        (miles per gallon or MPG) based on engine size, number of cylinders 
+        transmission type, drive type, model year, and the presence of a 
+        supercharger or turbo charger.  Simply adjust the parameters on the 
+        left to match your specifications.  You will see the MPG estimate below 
+        automatically update.  Finally, any actual vehicles that meet these 
+        parameters will display in the table."),
+      p("This predictive model was built using data from fueleconomy.gov for 
+        model years 1987 to 2016. Infromation on how the model was built is 
+        available at the following github repository"),
+      a(href="","Github Repo:"),
+      h3('Estimated MPG:'),
+      verbatimTextOutput("mpg"),
+      h3('Matching Vehicles'),
+      tableOutput("cars")
   )
 ))

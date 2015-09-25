@@ -32,7 +32,7 @@ shinyServer(function(input, output) {
                           year==as.numeric(input$year),
                           sCharger==input$sCharger,
                           tCharger==input$tCharger)
-      select(carModels,Make=make,Model=model)
+      select(carModels,Make=make,Model=model,MPG=comb08)
   })
   
 
