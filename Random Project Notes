@@ -1,0 +1,16 @@
+Notes
+-------------
+https://www.fueleconomy.gov/feg/ws/index.shtml
+
+Variables of Interest:
+atvtype = ""
+combo08 - combined MPG for fuelType1
+cylinders - engine cylinders
+displ - egine displacement in liters
+drive
+trany
+year
+sCharger
+tCharger
+make
+model
