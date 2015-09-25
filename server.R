@@ -12,8 +12,17 @@ fuelData <- readRDS("fuelData.rds")
 
 shinyServer(function(input, output) {
    
-  
-    
+  output$mpg <- renderPrint({
+      userInputs <- data.frame(cylinders=input$cylinders,
+                           displ=input$displ,
+                           drive=input$drive,
+                           trany=input$trany,
+                           year=as.numeric(input$year),
+                           sCharger=input$sCharger,
+                           tCharger=input$tCharger)
+      predict(model,userInputs)
   })
   
-})
+
+  })
+

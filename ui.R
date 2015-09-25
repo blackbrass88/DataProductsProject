@@ -30,7 +30,7 @@ shinyUI(pageWithSidebar(
       
       radioButtons(inputId = "drive",
                          label = NULL,
-                         choices = c("2-Wheel Drive","4-Wheel Drive"),
+                         choices = levels(fuelData$drive),
                          selected="2-Wheel Drive",
                          inline = TRUE),
       
@@ -44,12 +44,21 @@ shinyUI(pageWithSidebar(
                   min = 0.9,
                   max = 8.4,
                   value = 2.4,
-                  step = 0.1)
+                  step = 0.1),
+      
+      checkboxInput(inputId ="sCharger",
+                    label = "Supercharger",
+                    value = FALSE),
+      
+      checkboxInput(inputId = "tCharger",
+                    label = "Turbocharger",
+                    value = FALSE)
       
   ),
   
   # Show a plot of the generated distribution
   mainPanel(
-   h3('Hello')
+   h3('Estimated MPG:'),
+   verbatimTextOutput("mpg")
   )
 ))
