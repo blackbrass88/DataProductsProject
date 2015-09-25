@@ -30,10 +30,21 @@ shinyUI(pageWithSidebar(
       
       radioButtons(inputId = "drive",
                          label = NULL,
-                         choices = c("2-Wheel Drive"="2-Wheel Drive",
-                                        "4-Wheel Driv"="4-Wheel Drive"),
+                         choices = c("2-Wheel Drive","4-Wheel Drive"),
                          selected="2-Wheel Drive",
-                         inline = TRUE)   
+                         inline = TRUE),
+      
+      selectInput(inputId = "trany",
+                  label = "Transmission:",
+                  choices = levels(fuelData$trany),
+                  selected = "Manual 6-spd"),
+      
+      sliderInput(inputId = "displ",
+                  label = "Engine Displacement (liters):",
+                  min = 0.9,
+                  max = 8.4,
+                  value = 2.4,
+                  step = 0.1)
       
   ),
   
